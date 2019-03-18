@@ -1,5 +1,5 @@
 FROM ruby:2.6.2-stretch as ruby
-RUN apt-get update -qq && apt-get install -y postgresql-client libgmp10-dev libgmp10 dnsutils busybox
+RUN apt-get update -qq && apt-get install -y postgresql-client libgmp10-dev libgmp10 dnsutils busybox libyaml-dev
 FROM gcr.io/distroless/base
 
 COPY --from=ruby ["/lib/x86_64-linux-gnu/liblzma*", \
@@ -43,6 +43,7 @@ COPY --from=ruby ["/usr/lib/x86_64-linux-gnu/libgmp*", \
      "/usr/lib/x86_64-linux-gnu/libstdc++.so*", \
      "/usr/lib/x86_64-linux-gnu/libtasn1*", \
      "/usr/lib/x86_64-linux-gnu/libxml2.so*", \
+     "/usr/lib/x86_64-linux-gnu/libyaml*", \
      "/usr/lib/x86_64-linux-gnu/"]
 
 COPY --from=ruby /usr/local/lib/ /usr/local/lib
