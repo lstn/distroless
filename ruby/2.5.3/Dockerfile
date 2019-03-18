@@ -15,7 +15,7 @@ COPY --from=ruby ["/lib/x86_64-linux-gnu/liblzma*", \
         "/lib/x86_64-linux-gnu/liblzma.so*", \
         "/lib/x86_64-linux-gnu/libz.so.*", \
         "/lib/x86_64-linux-gnu/"]
-COPY --from=builder ["/usr/lib/x86_64-linux-gnu/libgmp*", \
+COPY --from=ruby ["/usr/lib/x86_64-linux-gnu/libgmp*", \
      "/usr/lib/x86_64-linux-gnu/libbind9.so*", \
      "/usr/lib/x86_64-linux-gnu/libcrypto.so*", \
      "/usr/lib/x86_64-linux-gnu/libdns.so*", \
