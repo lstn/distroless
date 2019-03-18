@@ -1,4 +1,4 @@
-FROM ruby:2.4.5-stretch as ruby
+FROM ruby:2.6.1-stretch as ruby
 RUN apt-get update -qq && apt-get install -y postgresql-client libgmp10-dev libgmp10 busybox dnsutils
 FROM gcr.io/distroless/base
 
@@ -45,7 +45,9 @@ COPY --from=builder ["/usr/lib/x86_64-linux-gnu/libgmp*", \
      "/usr/lib/x86_64-linux-gnu/libxml2.so*", \
      "/usr/lib/x86_64-linux-gnu/libyaml*", \
      "/usr/lib/x86_64-linux-gnu/"]
+
 COPY --from=ruby /usr/local/lib/ /usr/local/lib
 COPY --from=ruby /usr/local/bin/ /usr/local/bin
+ENV GEM_HOME="/usr/local/bundle"
 
 CMD ["/usr/local/bin/ruby", "-v"]
