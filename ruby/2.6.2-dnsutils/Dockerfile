@@ -1,5 +1,5 @@
 FROM ruby:2.6.2-stretch as ruby
-RUN apt-get update -qq && apt-get install -y postgresql-client libgmp10-dev libgmp10 dnsutil busybox
+RUN apt-get update -qq && apt-get install -y postgresql-client libgmp10-dev libgmp10 dnsutils busybox
 FROM gcr.io/distroless/base
 
 COPY --from=ruby ["/lib/x86_64-linux-gnu/liblzma*", \
