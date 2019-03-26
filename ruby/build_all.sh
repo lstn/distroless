@@ -22,6 +22,7 @@ shift $((OPTIND-1))
 declare -a versions=(
     "2.4.5"
     "2.5.3"
+    "2.5.5" "2.5.5-dnsutils"
     "2.6.0"
     "2.6.1" "2.6.1-dnsutils"
     "2.6.2" "2.6.2-dnsutils"
